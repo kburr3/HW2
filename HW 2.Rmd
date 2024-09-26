@@ -65,5 +65,5 @@ Choice of $K$ can also influence this classifier.  Why would choosing $K = 6$ no
 
 Build a github repository to store your homework assignments.  Share the link in this file.  
 
-*STUDENT INPUT*
+*https://github.com/kburr3/STOR390-HW/tree/HW-2*
 
