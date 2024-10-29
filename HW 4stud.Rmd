@@ -1,0 +1,34 @@
+---
+title: "HW 4"
+author: "Student Name"
+date: "10/10/2024"
+output:
+  pdf_document: default
+  html_document:
+    number_sections: yes
+---
+
+This homework is designed to give you practice working with statistical/philosophical measures of fairness. 
+
+#
+The paper linked below^[https://link.springer.com/article/10.1007/s00146-023-01676-3] discusses potential algorithmic bias in the context of credit.  In particular, banks are now regularly using machine learning algorithms to do an initial screening for credit-worthy loan applicants.  In section 4.5.2, this paper reports the rates at which various racial groups were granted a mortgage.  If we assume that it is a classifier making these predictions^[It is unclear whether this is an algorithm producing these predictions or human] what additional information would be necessary to assess this classifier according to equalized odds?
+
+*According to equalized odds we would need to make sure our different groups have the same false positive rates and true positive rates. This would allow us to determine people in different groups face comparable chances when being classified. So knowing this, other than true & false positive rates, some additional information we might need would be false negative rates (this would tell us if one group faces higher/lower denial rates compared to others) and the baseline rates of credit-worthy loan applicants across different groups. This information is important because it helps determine if the disparities are from group differences in credit-worthy loan applicants or from biases within the classifier.*.  
+
+#
+Show or argue that the impossibility result discussed in class does not hold when our two fringe cases^[a) perfect predicting classifier and b) perfectly equal proportions of ground truth class labels across the protected variable] are met.  
+
+*The impossibility result would not hold when our two finge cases are met. This is because if we had a perfect predicting classifier, the classifer would not only satisfy equalized odds, but it would never have an error. Then in our second fringe case, when the proportions of ground truth class labels are perfectly equal proportions, it would mean our baselines are identical across protected variables. This would remove the natural disparity often found when there are differing baselines across groups. So with things like no prediction errors and no differing baselines, the impossibility result does not hold, as a classifier can satisfy all fairness criteria without compromising it's accuracy.*
+
+#
+
+How would Rawls's Veil of Ignorance define a protected class?  Further, imagine that we preprocessed data by removing this protected variable from consideration before training out algorithm.  How could this variable make its way into our interpretation of results nonetheless?
+
+*In Rawls's Veil of Ignorance, a protected class would be defined by any group of individuals that could be potentially discriminated against by society based on specific characteristics. If we imagine that we preprocessed data by removing this protected variable from consideration, this variable could still make its way into the interpretation of our results through other correlated variables. For example in the credit-worthy loan applicants question above, the variable race might correlate strongly with another variable like zip-code. Then simply removing race, does not fully eliminate its impact as the bias from race can persist through other correlated variables (like zip code).*
+
+#
+
+Based on all arguments discussed in class, is the use of COMPAS to supplement a judge's discretion justifiable.  Defend your position.  This defense should appeal to statistical and philosophical measures of fairness as well as one of our original moral frameworks from the beginning of the course.  Your response should be no more than a paragraph in length. 
+
+*In my opinion the use of COMPAS to supplement a judge's discretion is unjustifiable. Statistically, COMPAS had been proven to exhibit bias, specifically with higher false positive rates for black individuals. This blatantly, shows it fails to meet the fairness criteria of equalized odds. Ethically, it is problematic as it goes against deontology The algorithm treats individuals as means to an end. They should be treated as moral agents, at all times, so this would entail they deserve impartial treatment instead of a bias algorithm. *
+
