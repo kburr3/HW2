@@ -1,5 +1,5 @@
-# Homework 2
+# Homework 4
 
-This contains my work for homework 2 in my STOR 390 class, Machine Learning: Ethics and Society. 
+This contains my work for homework 4 in my STOR 390 class, Machine Learning: Ethics and Society. 
 
-This homework is meant to illustrate the methods of classification algorithms as well as their potential pitfalls. In class, we demonstrated K-Nearest-Neighbors using the iris dataset. Today we will train a KNN classifier.
+This homework is designed to give you practice working with statistical/philosophical measures of fairness. 
