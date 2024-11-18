@@ -1,0 +1,55 @@
+---
+title: "HW 6"
+author: "Student Name"
+date: "1/21/2024"
+output:
+  pdf_document: default
+  html_document:
+    number_sections: yes
+---
+
+#
+What is the difference between gradient descent and *stochastic* gradient descent as discussed in class?  (*You need not give full details of each algorithm.  Instead you can describe what each does and provide the update step for each.  Make sure that in providing the update step for each algorithm you emphasize what is different and why.*)
+
+*Gradient descent and stochastic gradient descent are different as gradient descent finds the gradient of the loss function using the entire dataset, while stochastic gradient descent finds the gradient using a randomly selected subset of the data at each iteration. The reason Stochastic gradient descent is used is because when using all the dataset gradient descent can be prone to finding and being trapped in local rather than global minima. When using stochastic gradient descent you can escape local minima and converge to a global optimal solution quicker, so by using a random subset, stochastic gradient descent sacrifices precision in each step but gains efficiency (which is good when working with large datasets)*
+
+#
+Consider the `FedAve` algorithm.  In its most compact form we said the update step is $\omega_{t+1} = \omega_t - \eta \sum_{k=1}^K{\frac{n_k}{n}\nabla F_k(\omega_t)}$.  However, we also emphasized a more intuitive, yet equivalent, formulation given by $\omega_{t+1}^k=\omega_t-\eta\nabla F_k(\omega_t); w_{t+1} = \sum_{k=1}^K{\frac{n_k}{n}w_{t+1}^k}$.  
+
+Prove that these two formulations are equivalent.  
+(*Hint: show that if you place $\omega_{t+1}^k$ from the first equation (of the second formulation) into the second equation (of the second formulation), this second formulation will reduce to exactly the first formulation.*) 
+
+*Below is my proof:*
+*We know the following*
+$\omega_{t+1}^k=\omega_t-\eta\nabla F_k(\omega_t)$
+*So in...*
+$\omega_{t+1} = \sum_{k=1}^K{\frac{n_k}{n}w_{t+1}^k}$
+*Take the second half o the top equation and substitute that in the end of the second equation to be something like*
+$\omega_{t+1} = \sum_{k=1}^K{\frac{n_k}{n}{(\omega_t-\eta\nabla F_k(\omega_t))}}$
+*Then distribute across the terms inside (I can't figure out how to do the markdown for that part but you use the distributive property)*
+*After, simplify the following which is constant (so it's 1)*
+$\sum_{k=1}^K{\frac{n_k}{n}}$
+*Which in all gives*
+$\omega_{t+1} = \omega_t - \eta \sum_{k=1}^K{\frac{n_k}{n}\nabla F_k(\omega_t)}$
+
+
+#
+Now give a brief explanation as to why the second formulation is more intuitive.  That is, you should be able to explain broadly what this update is doing.  
+
+*I believe the second formulation is more intuitive because it separates two important steps which makes it easier to interpret. The first part essentially is a gradient descent which allows for different outputs on a smaller level, then the second part is more overall and computes an average of all the outputs*
+
+# 
+Prove that randomized-response differential privacy is $\epsilon$-differentially private.  
+
+*We can confirm for* $\epsilon$ *0 and 1 and data sets that differ in exactly one element (randomized-response differential privacy deal with binary outputs as they differ by one element), randomized-response differential privacy is* $\epsilon - D_{x}P$ *because our ratio for our two datasets would be* $1/e^{\epsilon}$ *and* $e^{\epsilon}$
+
+*To find what was needed above I used* ${P[A(D1) = S]}/{P[A(D2) = S]}$ *which is found in the notes*
+
+
+# 
+Define the harm principle.  Then, discuss whether the harm principle is *currently* applicable to machine learning models.  (*Hint: recall our discussions in the moral philosophy primer as to what grounds agency.  You should in effect be arguing whether ML models have achieved agency enough to limit the autonomy of the users of said algorithms.* )
+
+*The harm principle is when personal autonomy is checked exactly at the point where exercising said autonomy causes objective harm to another moral agent. Personally, I believe the harm principle is currently applicable to machine learning models. Although I know some might say these models do not have agency, those who create the models are moral agents, and biased algorithms (for example COMPAS) can drastically negatively affect individuals' lives. So, in my opinion, those who create the models have to understand the harm that can occur when creating these machine learning models.*
+
+
+
