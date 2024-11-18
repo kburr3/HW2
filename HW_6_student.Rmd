@@ -1,6 +1,6 @@
 ---
 title: "HW 6"
-author: "Student Name"
+author: "Keegan Burr"
 date: "1/21/2024"
 output:
   pdf_document: default
